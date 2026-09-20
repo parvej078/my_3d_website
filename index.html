@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PARVEJ CLOUD KITCHEN</title>
+    <meta
+      name="description"
+      content="PARVEJ CLOUD KITCHEN serves artisan coffee, fresh pastries, and cozy café favorites."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand" aria-label="PARVEJ CLOUD KITCHEN home">
+          <span class="brand-mark">☕</span>
+          PARVEJ CLOUD KITCHEN
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#visit">Visit</a>
+        </nav>
+        <a class="nav-button" href="#menu">Order now</a>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Lucknow's favorite comfort kitchen</p>
+            <h1>Fresh food, cozy vibes, and perfect sips.</h1>
+            <p class="lead">
+              From sizzling street snacks to chilled coffees and creamy shakes,
+              PARVEJ CLOUD KITCHEN brings warm flavors and easy comfort to every table.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="#menu">Explore menu</a>
+              <a class="secondary-btn" href="#about">Our story</a>
+            </div>
+            <ul class="hero-meta" aria-label="Cafe highlights">
+              <li>Fresh Indian snacks</li>
+              <li>Cold coffee & shakes</li>
+              <li>Open 7am - 8pm</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-label="Cafe coffee illustration">
+            <div id="default-hero-visual" class="cup-illustration">
+              <div class="cup">
+                <div class="steam steam-one"></div>
+                <div class="steam steam-two"></div>
+                <div class="steam steam-three"></div>
+              </div>
+              <div class="plate"></div>
+            </div>
+
+            <div id="featured-item-card" class="featured-item-card hidden" aria-live="polite">
+              <img id="featured-item-image" src="" alt="Selected item" />
+              <div class="featured-item-content">
+                <span class="featured-label">Recently selected</span>
+                <h3 id="featured-item-name">No item selected</h3>
+                <p id="featured-item-price">₹ 0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="menu-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Our menu</p>
+            <h2>Popular favorites</h2>
+          </div>
+          <div class="menu-layout">
+            <div id="menu-grid" class="menu-grid" aria-live="polite"></div>
+
+            <aside class="order-panel" aria-live="polite">
+              <div class="order-header">
+                <h3>Your Order</h3>
+                <span id="cart-count">0 items</span>
+              </div>
+
+              <div class="selected-box">
+                <span class="selected-label">Selected</span>
+                <strong id="selected-item">None</strong>
+              </div>
+
+              <ul id="cart-items" class="cart-items">
+                <li class="empty-cart">No items added yet.</li>
+              </ul>
+
+              <div class="order-breakdown">
+                <div><span>Subtotal</span><strong id="cart-subtotal">₹ 0</strong></div>
+                <div><span>Delivery</span><strong id="cart-delivery">₹ 0</strong></div>
+                <div><span>Tax</span><strong id="cart-tax">₹ 0</strong></div>
+              </div>
+
+              <div class="order-summary">
+                <span>Total</span>
+                <strong id="cart-total">₹ 0</strong>
+              </div>
+
+              <button class="checkout-btn" type="button">Place Order</button>
+              <button class="whatsapp-btn" type="button">WhatsApp Order</button>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <div id="checkout-modal" class="checkout-modal hidden" aria-hidden="true">
+        <div class="checkout-dialog" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+          <button id="close-modal" class="close-modal" aria-label="Close order form" type="button">×</button>
+
+          <h3 id="checkout-title">Complete your order</h3>
+
+          <form id="order-form">
+            <div class="form-row">
+              <label>
+                Full Name
+                <input type="text" name="customerName" placeholder="Enter your name" required />
+              </label>
+            </div>
+
+            <div class="form-row two-col">
+              <label>
+                Phone
+                <input type="tel" name="phone" placeholder="Enter phone number" required />
+              </label>
+              <label>
+                Delivery Time
+                <input type="time" name="time" value="18:30" required />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Delivery Address
+                <textarea name="address" rows="3" placeholder="Enter your address" required></textarea>
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Order Notes
+                <textarea name="notes" rows="2" placeholder="Add notes (optional)"></textarea>
+              </label>
+            </div>
+
+            <div class="order-preview">
+              <h4>Order Summary</h4>
+              <ul id="summary-items"></ul>
+              <div class="summary-row"><span>Subtotal</span><strong id="summary-subtotal">₹ 0</strong></div>
+              <div class="summary-row"><span>Delivery</span><strong id="summary-delivery">₹ 0</strong></div>
+              <div class="summary-row"><span>Tax</span><strong id="summary-tax">₹ 0</strong></div>
+              <div class="summary-total">
+                <span>Total</span>
+                <strong id="summary-total">₹ 0</strong>
+              </div>
+            </div>
+
+            <div class="modal-actions">
+              <button type="submit" class="submit-order-btn">Confirm Order</button>
+              <button type="button" class="whatsapp-btn modal-whatsapp">WhatsApp Order</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="success-modal" class="checkout-modal hidden" aria-hidden="true">
+        <div class="checkout-dialog success-dialog" role="dialog" aria-modal="true" aria-labelledby="success-title">
+          <div class="success-icon">✓</div>
+          <h3 id="success-title">Order placed successfully!</h3>
+          <p>Your food is being prepared and will be delivered soon.</p>
+          <button id="success-close" class="submit-order-btn" type="button">Done</button>
+        </div>
+      </div>
+
+      <section id="about" class="about-section">
+        <div class="container about-grid">
+          <div class="about-copy">
+            <p class="eyebrow">About us</p>
+            <h2>Fresh food, warm taste, and everyday comfort.</h2>
+            <p>
+              PARVEJ CLOUD KITCHEN is a local food kitchen serving fresh Indian snacks,
+              hot meals, cold drinks, and sweet treats. We focus on good taste, simple ingredients,
+              and quick service.
+            </p>
+            <p>
+              From everyday cravings to family meals, we keep our food fresh, flavorful, and easy to enjoy.
+            </p>
+          </div>
+          <div class="about-cards">
+            <div class="info-card">
+              <h3>Fresh kitchen</h3>
+              <p>Every meal is prepared fresh with simple ingredients and rich flavors.</p>
+            </div>
+            <div class="info-card">
+              <h3>Fast service</h3>
+              <p>Quick, clean, and reliable food service for daily comfort and cravings.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="visit" class="visit-section">
+        <div class="container visit-box">
+          <div>
+            <p class="eyebrow">Visit us</p>
+            <h2>Find your next favorite café spot.</h2>
+          </div>
+          <div class="visit-info">
+            <p>Hazratganj, Lucknow, Uttar Pradesh</p>
+            <p>Call: +91 98765 43210</p>
+            <p>Mon–Sun: 7:00 AM – 8:00 PM</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 PARVEJ CLOUD KITCHEN</p>
+        <p>Made with love and coffee.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
