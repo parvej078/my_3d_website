@@ -1040,7 +1040,7 @@ h3,
 .submit-order-btn {
   background: linear-gradient(135deg, #e66c4d, #ffb45d);
   color: #142523;
-  box-shadow: 0 12px 0 rgba(104, 42, 31, 0.28), 0 20px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 .nav-button:hover,
@@ -1048,7 +1048,7 @@ h3,
 .add-btn:hover,
 .checkout-btn:hover,
 .submit-order-btn:hover {
-  transform: translateY(-4px) rotateX(5deg);
+  transform: translateY(-2px);
 }
 
 .secondary-btn {
@@ -1109,8 +1109,7 @@ h1 {
 .checkout-dialog {
   background: linear-gradient(145deg, rgba(27, 74, 69, 0.92), rgba(8, 33, 35, 0.88));
   border: 1px solid rgba(255, 220, 160, 0.18);
-  box-shadow: 18px 24px 0 rgba(2, 14, 16, 0.18), 0 28px 50px var(--shadow), inset 0 1px rgba(255, 255, 255, 0.1);
-  transform-style: preserve-3d;
+  box-shadow: 0 18px 32px var(--shadow), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .cup-illustration {
@@ -1161,8 +1160,8 @@ h1 {
 
 .menu-card:hover {
   border-color: rgba(255, 180, 93, 0.58);
-  box-shadow: 22px 30px 0 rgba(2, 14, 16, 0.2), 0 34px 48px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 255, 255, 0.16);
-  transform: translateY(-12px) rotateX(3deg) rotateY(-3deg) translateZ(14px);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.22), inset 0 1px rgba(255, 255, 255, 0.16);
+  transform: translateY(-6px);
 }
 
 @keyframes card-in {
@@ -1194,6 +1193,16 @@ h1 {
 
 .order-panel {
   border-radius: 28px;
+  transition: transform 0.28s ease, border-color 0.28s ease;
+}
+
+.order-panel:hover {
+  border-color: rgba(255, 180, 93, 0.42);
+  transform: translateY(-2px);
+}
+
+.order-panel:active {
+  transform: translateY(0);
 }
 
 .selected-box,

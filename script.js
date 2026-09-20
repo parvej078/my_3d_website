@@ -140,25 +140,6 @@ const cart = [];
 const deliveryFee = 40;
 const taxRate = 0.05;
 
-function enableCardTilt() {
-  const tiltTargets = document.querySelectorAll('.menu-card, .info-card, .order-panel, .visit-box');
-
-  tiltTargets.forEach((target) => {
-    target.addEventListener('pointermove', (event) => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      const bounds = target.getBoundingClientRect();
-      const rotateX = ((event.clientY - bounds.top) / bounds.height - 0.5) * -8;
-      const rotateY = ((event.clientX - bounds.left) / bounds.width - 0.5) * 10;
-      target.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-    });
-
-    target.addEventListener('pointerleave', () => {
-      target.style.transform = '';
-    });
-  });
-}
-
 function parsePrice(priceText) {
   return Number(String(priceText).replace(/[^0-9]/g, ''));
 }
@@ -332,7 +313,7 @@ function openWhatsApp() {
       .join('\n')}\n\nSubtotal: ${formatPrice(totals.subtotal)}\nDelivery: ${formatPrice(totals.delivery)}\nTax: ${formatPrice(totals.tax)}\nTotal: ${formatPrice(totals.total)}`
   );
 
-  window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
+  window.open(`https://wa.me/919005056001?text=${message}`, '_blank');
 }
 
 function showSuccessMessage() {
@@ -448,5 +429,4 @@ orderForm.addEventListener('submit', (event) => {
 
 showFeaturedItem(menuItems[0]);
 renderMenu(menuItems);
-enableCardTilt();
 updateCartUI();
